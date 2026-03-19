@@ -10,7 +10,7 @@ import bananaLeaf1 from "../assets/bananaLeaf1.png"; // single leaf   (image 6)
 import bananaLeaf2 from "../assets/bananaLeaf2.png"; // double leaf   (image 7)
 
 // ── Countdown target ───────────────────────────────────────────────────────
-const EVENT_DATE = new Date("2026-03-28T10:00:00");
+const EVENT_DATE = new Date("2026-05-10T10:00:00");
 
 function useCountdown(target) {
   const calc = () => {
@@ -209,7 +209,7 @@ function CounterSection() {
             color: "#a8c070",
             letterSpacing: "0.18em",
           }}>
-            28th March · 2026
+            10th May · 2026
           </span>
           <div style={{ width: "60px", height: "1px", background: "linear-gradient(90deg, rgba(168,200,112,0.5), transparent)" }} />
         </div>
@@ -232,10 +232,9 @@ function VenueSection() {
   const [ref, visible] = useInView(0.12);
 
   const details = [
-    { icon: "📍", label: "Location",  value: "The Grand Pavilion, Kozhikode" },
-    { icon: "🕙", label: "Ceremony",  value: "10:00 AM — Muhurtham" },
-    { icon: "🌿", label: "Reception", value: "6:00 PM — Celebration Dinner" },
-    { icon: "📅", label: "Date",      value: "Saturday, 28th March 2026" },
+    { icon: "📍", label: "Location",  value: "Bustan Corniche, Manjeshwar Beach" },
+    { icon: "🕙", label: "Ceremony",  value: "10:45 AM — Muhurtham" },
+    { icon: "📅", label: "Date",      value: "Sunday, 10th May 2026" },
   ];
 
   return (
@@ -357,8 +356,9 @@ function VenueSection() {
                 letterSpacing: "0.3em",
                 color: "#c8e090",
                 textTransform: "uppercase",
+                
               }}>
-                Kozhikode, Kerala
+                Bustan Corniche, Manjeshwar Beach
               </p>
             </div>
           </div>
@@ -409,7 +409,7 @@ function VenueSection() {
             {/* Map button */}
             <div style={{ textAlign: "center" }}>
               <a
-                href="https://maps.google.com"
+                href="https://www.google.com/maps?q=BUSTAN+CORNICHE,+Manjeshwar+Beach,+Kasaragod,+Hosabettu,+Kerala+671323&ftid=0x3ba361371fcad827:0x980dfe703f7b3029&entry=gps&shh=CAE&lucs=,94297699,94284499,94231188,94280568,47071704,94218641,94282134,94286869&g_ep=CAISEjI2LjEwLjIuODc3MzE3OTEwMBgAIMi8BypILDk0Mjk3Njk5LDk0Mjg0NDk5LDk0MjMxMTg4LDk0MjgwNTY4LDQ3MDcxNzA0LDk0MjE4NjQxLDk0MjgyMTM0LDk0Mjg2ODY5QgJJTg%3D%3D&skid=0a3982b5-ee18-47f1-9ceb-76cad5ba0fe9&g_st=iw"
                 target="_blank"
                 rel="noreferrer"
                 style={{
@@ -934,7 +934,7 @@ function WelcomeSection() {
           fontWeight: 300,
           color: "#f0ede4",
           letterSpacing: "0.06em",
-        }}>Arjun</span>
+        }}>Ramyashree</span>
         <div style={{ textAlign: "center" }}>
           <div style={{
             width: "40px", height: "40px",
@@ -952,7 +952,7 @@ function WelcomeSection() {
           fontWeight: 300,
           color: "#f0ede4",
           letterSpacing: "0.06em",
-        }}>Meera</span>
+        }}>Thilak Rai</span>
       </div>
 
       {/* Date badge */}
@@ -981,14 +981,14 @@ function WelcomeSection() {
           fontSize: "clamp(18px,3vw,28px)",
           color: "#f0ede4",
           letterSpacing: "0.08em",
-        }}>28th March · 2026</p>
+        }}>10th May · 2026</p>
         <p style={{
           fontFamily: "'Cormorant Garamond', serif",
           fontStyle: "italic",
           fontSize: "clamp(12px,1.6vw,15px)",
           color: "#8ab858",
           marginTop: "6px",
-        }}>Kozhikode, Kerala</p>
+        }}>Bustan Corniche, Manjeshwar Beach</p>
       </div>
 
       {/* Bottom ornament */}

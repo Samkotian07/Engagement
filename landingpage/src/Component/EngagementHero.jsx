@@ -168,7 +168,8 @@ export default function EngagementHero() {
     const gltfLoader = new GLTFLoader();
     gltfLoader.setDRACOLoader(dracoLoader);
 
-    const RING_SCALE  = 0.85;
+    // Scale ring based on screen width for mobile responsiveness
+    const RING_SCALE  = W < 768 ? 0.45 : W < 1024 ? 0.65 : 0.85;
     let ring1Loaded   = false;
     let ring2Loaded   = false;
     let scrollCleanup = null;
@@ -448,7 +449,7 @@ export default function EngagementHero() {
               </p>
             </div>
 
-            {/* Scroll hint */}
+            {/* Scroll hint 
             <div className="bounce" style={{
               position: "absolute", bottom: "6.5%", left: 0, right: 0,
               textAlign: "center", opacity: Math.max(0, 1 - progress * 6),
@@ -461,7 +462,7 @@ export default function EngagementHero() {
                 </rect>
               </svg>
             </div>
-
+*/}
             {/* Mid tagline */}
             {progress > 0.22 && progress < 0.84 && (
               <div style={{
