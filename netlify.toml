@@ -1,40 +1,17 @@
+
+That’s Markdown/explanation text — Netlify tries to parse it and crashes.
+
+---
+
+### ✅ Your `netlify.toml` should be ONLY this:
+
+```toml
 [build]
-  base    = "landingpage"
+  base = "landingpage"
   command = "npm run build"
   publish = "dist"
 
 [[redirects]]
-  from   = "/*"
-  to     = "/index.html"
+  from = "/*"
+  to = "/index.html"
   status = 200
-```
-
-This is actually **already correct** as you have it! The key rule is:
-
-- If `netlify.toml` is at **repo root** → `publish = "landingpage/dist"`
-- If `netlify.toml` is at **repo root** with `base = "landingpage"` → `publish = "dist"` ✅
-
----
-
-**Netlify dashboard settings when redeploying:**
-
-| Field | Value |
-|---|---|
-| **Base directory** | `landingpage` |
-| **Build command** | `npm run build` |
-| **Publish directory** | `dist` |
-
----
-
-**Make sure this file structure is correct before pushing:**
-```
-ENGAGEMENT/              ← repo root
-  netlify.toml           ← here
-  landingpage/
-    public/
-      the_ring_1_carat.glb
-    src/
-      assets/
-        Banana.jpeg
-    package.json
-    vite.config.js
