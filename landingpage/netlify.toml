@@ -1,0 +1,21 @@
+[build]
+  base    = "landingpage"
+  command = "npm run build"
+  publish = "dist"
+
+[[redirects]]
+  from   = "/*"
+  to     = "/index.html"
+  status = 200
+```
+The `[[redirects]]` rule is critical — without it, refreshing any page gives a 404.
+
+**3. Make sure `the_ring_1_carat.glb` is in the `public/` folder**
+```
+landingpage/
+  public/
+    the_ring_1_carat.glb   ← must be here for Netlify to serve it
+  src/
+    assets/
+      Banana.jpeg
+      ...
