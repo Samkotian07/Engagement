@@ -450,10 +450,8 @@ function DetailsSection() {
   const timeline = [
     { time: "9:00 AM",  icon: "🌸", title: "Guest Arrival",     desc: "Welcome drinks & floral arrangements await you" },
     { time: "10:00 AM", icon: "🪷", title: "Muhurtham",          desc: "The auspicious ceremony begins with traditional rites" },
-    { time: "12:00 PM", icon: "🍽️", title: "Sadhya Lunch",       desc: "A grand Kerala feast served on banana leaf" },
-    { time: "4:00 PM",  icon: "📸", title: "Photography",        desc: "Capturing memories among lush garden settings" },
-    { time: "6:00 PM",  icon: "✨", title: "Evening Reception",  desc: "Dinner, music & celebration with loved ones" },
-    { time: "9:00 PM",  icon: "🎊", title: "Grand Send-off",     desc: "Bid the couple farewell with lights & laughter" },
+    { time: "11:00 PM",  icon: "📸", title: "Photography",        desc: "Capturing memories among lush garden settings" },
+    { time: "12:00 PM", icon: "🍽️", title: "Sadhya Lunch",       desc: "A simple lunch will be lovingly served as we gather to celebrate this special moment together" },
   ];
 
   return (
