@@ -535,7 +535,7 @@ export default function EngagementHero() {
                   fontSize: "clamp(13px,1.9vw,18px)",
                   color: "#c0aa80", letterSpacing: "0.2em",
                 }}>
-                  28th March · 2026
+                  10th May · 2026
                 </p>
               </div>
             </div>

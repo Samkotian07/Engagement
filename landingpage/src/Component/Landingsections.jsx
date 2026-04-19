@@ -755,9 +755,9 @@ function DressCodeSection() {
           color: "#2a3828",
           lineHeight: 1.8,
         }}>
-          "As a heartfelt gift, we would love a bottle of your favourite wine,
-          which we will open together on our next celebration.
-          Your presence is our greatest treasure."
+          "On this joyous occasion, your presence is the greatest blessing we could ask for.
+We kindly request no gifts your love, laughter, and good wishes mean the world to us.
+We look forward to celebrating this beautiful beginning together with you."
         </p>
         <div style={{
           marginTop: "20px",
@@ -765,7 +765,7 @@ function DressCodeSection() {
           fontSize: "clamp(13px,1.6vw,15px)",
           color: "#8ab858",
           letterSpacing: "0.12em",
-        }}>— Arjun &amp; Meera</div>
+        }}>— Kavyashree &amp; Thilak</div>
       </div>
     </section>
   );
@@ -952,7 +952,7 @@ function WelcomeSection() {
           fontWeight: 300,
           color: "#f0ede4",
           letterSpacing: "0.06em",
-        }}>Thilak Rai</span>
+        }}>Thilak</span>
       </div>
 
       {/* Date badge */}
