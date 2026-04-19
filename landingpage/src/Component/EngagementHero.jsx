@@ -67,7 +67,10 @@ export default function EngagementHero() {
 
     /* ── Scene & Camera ── */
     const scene  = new THREE.Scene();
-    const camera = new THREE.PerspectiveCamera(42, W / H, 0.1, 100);
+    const aspect = W / H;
+    // Adjust FOV for mobile to ensure rings stay visible
+    const baseFOV = aspect < 0.6 ? 55 : 42;
+    const camera = new THREE.PerspectiveCamera(baseFOV, aspect, 0.1, 100);
     camera.position.set(0, 0.4, 8);
     camera.lookAt(0, 0, 0);
 
@@ -176,6 +179,12 @@ export default function EngagementHero() {
 
     const gsapFinalY1 = 0.18;
     const gsapFinalY2 = Math.PI - 0.18;
+    
+    // Mobile-aware position scaling
+    const isMobile = W < 768;
+    const posScale = isMobile ? 0.55 : 1.0;
+    const xOffset = isMobile ? 0.88 : 1.6;
+    const finalXOffset = isMobile ? 0.48 : 0.88;
 
     const setupGSAP = () => {
       if (!ring1Loaded || !ring2Loaded) return;
@@ -184,16 +193,16 @@ export default function EngagementHero() {
 
       /* Act 1: drift apart */
       tl
-        .to(pivot1.position, { x: -1.6, y:  0.15, z:  0.3,  ease: "power2.inOut", duration: 0.35 }, 0)
-        .to(pivot2.position, { x:  1.6, y:  0.15, z: -0.3,  ease: "power2.inOut", duration: 0.35 }, 0)
+        .to(pivot1.position, { x: -xOffset * posScale, y:  0.15, z:  0.3,  ease: "power2.inOut", duration: 0.35 }, 0)
+        .to(pivot2.position, { x:  xOffset * posScale, y:  0.15, z: -0.3,  ease: "power2.inOut", duration: 0.35 }, 0)
         .to(pivot1.rotation, { x: -0.65, y:  0.3,             z:  0.08, ease: "power2.inOut", duration: 0.35 }, 0)
         .to(pivot2.rotation, { x: -0.65, y: Math.PI - 0.3,    z: -0.08, ease: "power2.inOut", duration: 0.35 }, 0)
       /* Act 2: face-on */
         .to(pivot1.rotation, { x: -Math.PI / 2, y:  0,        z:  0.2,  ease: "power1.inOut", duration: 0.30 }, 0.35)
         .to(pivot2.rotation, { x: -Math.PI / 2, y:  Math.PI,  z: -0.2,  ease: "power1.inOut", duration: 0.30 }, 0.35)
       /* Act 3: interlock */
-        .to(pivot1.position, { x: -0.88, y: -0.05, z:  0.50, ease: "power3.inOut", duration: 0.35 }, 0.65)
-        .to(pivot2.position, { x:  0.88, y: -0.05, z: -0.50, ease: "power3.inOut", duration: 0.35 }, 0.65)
+        .to(pivot1.position, { x: -finalXOffset * posScale, y: -0.05, z:  0.50, ease: "power3.inOut", duration: 0.35 }, 0.65)
+        .to(pivot2.position, { x:  finalXOffset * posScale, y: -0.05, z: -0.50, ease: "power3.inOut", duration: 0.35 }, 0.65)
         .to(pivot1.rotation, { x: -Math.PI / 2, y: gsapFinalY1, z: 0, ease: "power3.inOut", duration: 0.35 }, 0.65)
         .to(pivot2.rotation, { x: -Math.PI / 2, y: gsapFinalY2, z: 0, ease: "power3.inOut", duration: 0.35 }, 0.65)
         .to(camera.position, { z: 6.5, ease: "power2.inOut", duration: 0.35 }, 0.72);
@@ -328,6 +337,8 @@ export default function EngagementHero() {
         @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Cinzel:wght@400;600&display=swap');
         *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
+        canvas { display: block; width: 100% !important; height: 100% !important; }
+
         .gold-shimmer {
           background: linear-gradient(90deg,#b8762a,#f5d060,#e8a830,#fff0a0,#d4952a,#f5d060,#b8762a);
           background-size: 400%;
@@ -371,6 +382,8 @@ export default function EngagementHero() {
           width: "100%",
           overflow: "hidden",
           background: "#06090a",
+          willChange: "transform",
+          contain: "layout style paint",
         }}>
 
           {/* 1. Banana leaf background */}
@@ -405,7 +418,14 @@ export default function EngagementHero() {
           {/* 4. Three.js canvas */}
           <div
             ref={mountRef}
-            style={{ position: "absolute", inset: 0, zIndex: 8, pointerEvents: "none" }}
+            style={{ 
+              position: "absolute", 
+              inset: 0, 
+              zIndex: 8, 
+              pointerEvents: "none",
+              overflow: "hidden",
+              contain: "strict",
+            }}
           />
 
           {/* 5. UI Text */}
